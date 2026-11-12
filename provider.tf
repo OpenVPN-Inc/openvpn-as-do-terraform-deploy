@@ -1,0 +1,21 @@
+terraform {
+  required_version = ">= 1.5.0"
+
+  required_providers {
+    digitalocean = {
+      source  = "digitalocean/digitalocean"
+      version = "~> 2.0"
+    }
+    random = {
+      source  = "hashicorp/random"
+      version = "~> 3.6"
+    }
+    tls = {
+      source  = "hashicorp/tls"
+      version = "~> 4.0"
+    }
+  }
+}
+
+# The API token is read from the DIGITALOCEAN_TOKEN environment variable
+provider "digitalocean" {}

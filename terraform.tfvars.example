@@ -1,0 +1,31 @@
+# Copy this file to terraform.tfvars and replace the values.
+# terraform.tfvars is ignored by git. Do not commit real values.
+# Set the API token in your shell: export DIGITALOCEAN_TOKEN="..."
+
+region            = "sfo3"
+droplet_size      = "s-2vcpu-2gb"
+ssh_allowed_cidrs = ["203.0.113.10/32"]  # Restrict SSH to your trusted IP addresses
+
+# SSH key: set exactly one of the three options
+# 1. Generate a key pair. Get the private key with: terraform output -raw ssh_private_key > key.pem
+# generate_ssh_key = true
+# 2. Use your own public key
+ssh_public_key = "ssh-ed25519 AAAA... user@host"
+# 3. Use a key that already exists in your DigitalOcean account
+# ssh_key_fingerprint = "3b:16:bf:e4:8b:00:8b:b8:59:8c:a9:d3:f0:19:45:fa"
+
+# Restrict the Web UI (port 943) to trusted IP addresses (optional)
+# admin_ui_allowed_cidrs = ["203.0.113.10/32"]
+
+# Restrict HTTPS (port 443) and the VPN (port 1194). The default is open to the internet (optional)
+# https_allowed_cidrs = ["0.0.0.0/0", "::/0"]
+# vpn_allowed_cidrs   = ["0.0.0.0/0", "::/0"]
+
+# Add the resources to an existing DigitalOcean Project (optional)
+# project_id = "00000000-0000-0000-0000-000000000000"
+
+# Use an existing VPC instead of creating a new one (optional)
+# vpc_uuid = "00000000-0000-0000-0000-000000000000"
+
+admin_username = "openvpn"
+# admin_password = "change-me-please"  # If not set, a random password is generated. Show it with: terraform output -json openvpnas_credentials
